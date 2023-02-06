@@ -28,5 +28,36 @@ public class Order_detail {
     private int quantity;
     @Column
     private double discount;
+    
+    public Order getOrder() {
+        return order;
+    }
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+    public Product getProduct() {
+        return product;
+    }
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+    public double getUnit_price() {
+        return unit_price;
+    }
+    public void setUnit_price(double unit_price) {
+        this.unit_price = unit_price;
+    }
+    public int getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    public double getDiscount() {
+        return discount;
+    }
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
 
 }
