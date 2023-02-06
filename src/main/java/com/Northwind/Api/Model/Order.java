@@ -50,6 +50,6 @@ public class Order {
     @Column
     private String ship_country;
 
-    @OneToMany(mappedBy = "orders")
+    @OneToMany(mappedBy = "order")
     private List<Order_detail> order_details;
 }
