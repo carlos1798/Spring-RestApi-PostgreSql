@@ -1,16 +1,12 @@
 package com.Northwind.Api.Model;
 
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.ManyToAny;
 
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity(name = "products")
 public class Product {
