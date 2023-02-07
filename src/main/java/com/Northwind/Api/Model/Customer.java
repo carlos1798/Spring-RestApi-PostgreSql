@@ -7,8 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity(name = "costumers")
-public class Costumer {
+@Entity(name = "customers")
+public class Customer {
 
     @Id @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private String customer_id;
@@ -35,10 +35,10 @@ public class Costumer {
 
 
     
-    public Costumer() {
+    public Customer() {
     }
     
-    public Costumer(String customer_id, String company_name, String contact_name, String contact_title, String address,
+    public Customer(String customer_id, String company_name, String contact_name, String contact_title, String address,
             String city, String region, String postal_code, String country, String phone, String fax) {
         this.customer_id = customer_id;
         this.company_name = company_name;
@@ -153,7 +153,7 @@ public class Costumer {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Costumer other = (Costumer) obj;
+        Customer other = (Customer) obj;
         if (customer_id == null) {
             if (other.customer_id != null)
                 return false;

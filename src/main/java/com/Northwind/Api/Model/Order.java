@@ -18,7 +18,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "costumer_id")
-    private Costumer costumer;
+    private Customer costumer;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
@@ -61,11 +61,11 @@ public class Order {
         this.order_id = order_id;
     }
 
-    public Costumer getCostumer() {
+    public Customer getCostumer() {
         return costumer;
     }
 
-    public void setCostumer(Costumer costumer) {
+    public void setCostumer(Customer costumer) {
         this.costumer = costumer;
     }
 
