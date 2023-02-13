@@ -5,7 +5,13 @@ import java.io.Serializable;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Embeddable
 public class Order_details_key implements Serializable {
 
@@ -18,62 +24,5 @@ public class Order_details_key implements Serializable {
     private Product product;
 
 
-    
-    public Order_details_key() {
-    }
-    public Order_details_key(Order order, Product product) {
-        this.order = order;
-        this.product = product;
-    }
-
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((order == null) ? 0 : order.hashCode());
-        result = prime * result + ((product == null) ? 0 : product.hashCode());
-        return result;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Order_details_key other = (Order_details_key) obj;
-        if (order == null) {
-            if (other.order != null)
-                return false;
-        } else if (!order.equals(other.order))
-            return false;
-        if (product == null) {
-            if (other.product != null)
-                return false;
-        } else if (!product.equals(other.product))
-            return false;
-        return true;
-    }
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-    @Override
-    public String toString() {
-        return "Order_details_key [order=" + order + ", product=" + product + "]";
-    }
 
 }

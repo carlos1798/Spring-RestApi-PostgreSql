@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Northwind.Api.Model.Customer;
 import com.Northwind.Api.Service.CustomerService;
+import com.Northwind.Api.Dto.*;
 
 import java.util.Optional;
 
@@ -22,9 +23,10 @@ public class CustomerController {
     @Autowired
     private CustomerService service;
 
-    @GetMapping
-    public ResponseEntity<List<Customer>> getAllCustomers() {
-        return new ResponseEntity<List<Customer>>(service.all(), HttpStatus.OK);
+    @GetMapping()
+    public List<CustomerResponse> getAllCustomers() {
+        return service.all();
+        
     }
 
     @GetMapping("/{customer_id}")
