@@ -31,7 +31,7 @@ public class Employee {
     @Column
     private String title;
     @Column
-    private String title_of_court;
+    private String title_of_courtesy;
     @Column
     private Date birth_date;
     @Column
@@ -50,15 +50,11 @@ public class Employee {
     private String home_phone;
     @Column
     private String extension;
-    @Lob
-    @Column
-    private byte[] photo;
+
     @Column
     private String notes;
     @Column
     private String photo_path;
-    @ManyToOne
-    @JoinColumn(name = "reports_to")
-    private Employee manager;
+
     
 }

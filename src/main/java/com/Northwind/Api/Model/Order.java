@@ -3,30 +3,28 @@ package com.Northwind.Api.Model;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.hibernate.grammars.hql.HqlParser;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString(exclude = "ship_via")
 @Entity(name = "orders")
 public class Order {
 
-    private @Id @GeneratedValue int order_id;
+    private @Id
+    @GeneratedValue int order_id;
 
     @ManyToOne
-    @JoinColumn(name = "costumer_id")
+    @JoinColumn(name = "customer_id")
     private Customer costumer;
 
-    @ManyToOne
+    @ManyToOne(targetEntity =  Employee.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
@@ -38,9 +36,10 @@ public class Order {
     @Column
     private Date shipped_date;
 
-    @ManyToOne
-    @JoinColumn(name = "shipper_id")
-    private Shipper ship_via;
+    @Column
+    private int ship_via;
+
+
     @Column
     private double freight;
     @Column
@@ -56,9 +55,8 @@ public class Order {
     @Column
     private String ship_country;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order_id")
     private List<Order_detail> order_details;
 
-  
 
 }

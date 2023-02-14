@@ -14,18 +14,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity(name = "order_details")
-@IdClass(Order_details_key.class)
 public class Order_detail {
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    private int order_id;
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+    private int product_id;
 
     @Column
     private double unit_price;
